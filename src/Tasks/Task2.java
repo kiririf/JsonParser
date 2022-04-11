@@ -18,6 +18,7 @@ public class Task2 {
 
         IP catcher = parser.fromJson(ipReader, IP.class);//переводим Json в объект
         ipInFile(catcher);//функция записи в файл
+
     }
 
     private static void ipInFile(IP catcher){

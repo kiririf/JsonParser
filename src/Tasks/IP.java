@@ -17,5 +17,6 @@ public class IP {
         return "IP{" +
                 "ip='" + ip + '\'' +
                 '}';
+
     }
 }
