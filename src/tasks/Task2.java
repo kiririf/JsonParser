@@ -1,8 +1,9 @@
-package Tasks;
+package tasks;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import org.jetbrains.annotations.NotNull;
 import org.jsoup.Jsoup;
 
 import java.io.FileWriter;
@@ -23,9 +24,10 @@ public class Task2 {
     }
 
     private static void ipInFile(IP catcher){
-        try (FileWriter writeIp = new FileWriter("ipBarn.txt")){//отлавливаем исключения
+        try (FileWriter writeIp = new FileWriter("ipBarn.txt");) {//отлавливаем исключения
             writeIp.write("ip ползователя:" + catcher.getIp());
         } catch (IOException e){
+            System.out.print("Возникли проблемы с записью данных в файл");
             e.printStackTrace();
         }
     }

@@ -1,4 +1,4 @@
-package Tasks;
+package tasks;
 
 public class IP {
 
@@ -10,13 +10,5 @@ public class IP {
 
     public void setIp(String ip) {
         this.ip = ip;
-    }
-
-    @Override
-    public String toString() {
-        return "IP{" +
-                "ip='" + ip + '\'' +
-                '}';
-
     }
 }
