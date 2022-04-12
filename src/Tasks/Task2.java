@@ -2,6 +2,7 @@ package Tasks;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
 import org.jsoup.Jsoup;
 
 import java.io.FileWriter;
@@ -10,11 +11,11 @@ import java.io.IOException;
 
 public class Task2 {
     public static void main(String[] args) throws IOException {
-        String ipReader = Jsoup.connect("https://api.ipify.org/?format=json") //подключаемся по ссылке и получаем данные
-                .ignoreContentType(true).execute().body();
+        String ipReader = Jsoup.connect("https://api.ipify.org/?format=json")
+                .ignoreContentType(true).execute().body();//подключаемся по ссылке и получаем данные
 
         GsonBuilder builder = new GsonBuilder();
-        Gson parser = builder.create();//создаём парсер, который преобразует Json в
+        Gson parser = builder.create();//создаём парсер, который преобразует Json в объект
 
         IP catcher = parser.fromJson(ipReader, IP.class);//переводим Json в объект
         ipInFile(catcher);//функция записи в файл
