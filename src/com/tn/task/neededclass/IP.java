@@ -1,4 +1,4 @@
-package tasks;
+package com.tn.task.neededclass;
 
 public class IP {
 

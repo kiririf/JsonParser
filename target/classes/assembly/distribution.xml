@@ -7,10 +7,10 @@
     <includeBaseDirectory>true</includeBaseDirectory>
     <fileSets>
         <fileSet>
-            <directory>${project.basedir}/target</directory>
+            <directory>${project.basedir}</directory>
             <outputDirectory/>
             <includes>
-                <include>*.jar</include>
+                <include>*.java</include>
             </includes>
         </fileSet>
         <fileSet>
