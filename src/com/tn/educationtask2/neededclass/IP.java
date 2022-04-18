@@ -1,4 +1,4 @@
-package com.tn.task.neededclass;
+package com.tn.educationtask2.neededclass;
 
 
 import lombok.Value;

@@ -1,4 +1,4 @@
-package com.tn.task.variableinput;
+package com.tn.educationtask2.variationsinput;
 
 public class InputJson {
     VariableInput variableInput;

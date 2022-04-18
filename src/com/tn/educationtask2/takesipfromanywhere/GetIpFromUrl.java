@@ -1,10 +1,10 @@
-package com.tn.task.ipcatcher;
+package com.tn.educationtask2.takesipfromanywhere;
 
 import org.jsoup.Jsoup;
 
 import java.io.IOException;
 
-public class GetIpFromUrl implements GetIpFrom {
+public class GetIpFromUrl implements GetIpFromAnywhere {
     @Override
     public String ipFromAnywhere(String jsonInputUrl) {
         String targetIp = null;

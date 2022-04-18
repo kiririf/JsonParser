@@ -1,11 +1,11 @@
-package com.tn.task.ipcatcher;
+package com.tn.educationtask2.takesipfromanywhere;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-public class GetIpFromFile implements GetIpFrom {
+public class GetIpFromFile implements GetIpFromAnywhere {
     @Override
     public String ipFromAnywhere(String jsonInputFile) {
         String targetIp = null;
