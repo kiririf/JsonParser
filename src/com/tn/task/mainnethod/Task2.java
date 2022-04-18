@@ -1,4 +1,4 @@
-package com.tn.task;
+package com.tn.task.mainnethod;
 
 import com.tn.task.variableinput.InputJson;
 import com.tn.task.variableinput.InputJsonFromFile;

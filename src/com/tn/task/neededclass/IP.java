@@ -1,8 +1,10 @@
 package com.tn.task.neededclass;
 
-import lombok.Getter;
 
+import lombok.Value;
+
+@Value
 public class IP {
-    @Getter
-    private String ip;
+
+    String ip;
 }
