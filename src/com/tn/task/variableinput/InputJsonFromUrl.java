@@ -11,7 +11,7 @@ public class InputJsonFromUrl implements VariableInput{
     @Override
     public void jsonInputStream(String[] args) {
         if (args.length > 0 && args[0].equals("url")) {
-            String jsonInputUrl = args.length == 2 ? args[1] : DEFAULT_JSON_INPUT_URL;
+            String jsonInputUrl = args.length > 1 ? args[1] : DEFAULT_JSON_INPUT_URL;
             ipInFile(JsonGetter.takeIp(new GetIpFromUrl(), jsonInputUrl));
         } else {
             ipInFile(JsonGetter.takeIp(new GetIpFromUrl(), DEFAULT_JSON_INPUT_URL));

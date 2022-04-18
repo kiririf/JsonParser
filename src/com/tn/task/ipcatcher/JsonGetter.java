@@ -8,9 +8,9 @@ public class JsonGetter {
     GetIpFrom getIpFrom;
 
     public static IP takeIp(GetIpFrom getIpFrom, String jsonInputStream) {
-        String newIp = getIpFrom.ipFromAnywhere(jsonInputStream);
+        String targetIp = getIpFrom.ipFromAnywhere(jsonInputStream);
         GsonBuilder builder = new GsonBuilder();
         Gson parser = builder.create();//создаём парсер, который преобразует Json в объект
-        return parser.fromJson(newIp, IP.class);//переводим Json в объект
+        return parser.fromJson(targetIp, IP.class);//переводим Json в объект
     }
 }

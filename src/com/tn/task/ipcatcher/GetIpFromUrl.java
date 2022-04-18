@@ -7,16 +7,16 @@ import java.io.IOException;
 public class GetIpFromUrl implements GetIpFrom {
     @Override
     public String ipFromAnywhere(String jsonInputUrl) {
-        String newIp = null;
+        String targetIp = null;
 
         try {
-            newIp = Jsoup.connect(jsonInputUrl)
+            targetIp = Jsoup.connect(jsonInputUrl)
                     .ignoreContentType(true).execute().body();//подключаемся по ссылке и получаем данные
         } catch (IOException e) {
             System.out.println("Возникли проблемы с получением данных по URL:" + e.getMessage());
             e.printStackTrace();
         }
 
-        return newIp;
+        return targetIp;
     }
 }

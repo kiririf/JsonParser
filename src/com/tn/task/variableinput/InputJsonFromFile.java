@@ -10,7 +10,7 @@ public class InputJsonFromFile implements VariableInput{
     @Override
     public void jsonInputStream(String[] args) {
         if (args.length > 0 && args[0].equals("file")) {
-            String jsonInputFile = args.length == 2 ? args[1] : DEFAULT_JSON_INPUT_FILE;
+            String jsonInputFile = args.length > 1 ? args[1] : DEFAULT_JSON_INPUT_FILE;
             ipInFile(JsonGetter.takeIp(new GetIpFromFile(), jsonInputFile));
         } else {
             new InputJson().jsonInput(new InputJsonFromUrl(), args);
