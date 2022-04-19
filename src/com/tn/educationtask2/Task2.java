@@ -15,7 +15,7 @@ public class Task2 {
             String userInputPath = args.length > 1 ? args[1] : null;
             GetIpStrategy strategyType = null;
             try {
-                strategyType = StrategyTypeEnum.valueOf(inputType.toUpperCase()).chosenStrategy();
+                strategyType = StrategyTypeEnum.valueOf(inputType.toUpperCase()).usedStrategy();
             } catch (RuntimeException runtimeException) {
                 System.out.println("Enter the correct input type: file, url");
             }
