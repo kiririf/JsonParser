@@ -9,7 +9,7 @@ public class GetIpFromFile implements GetIpStrategy {
     public static final String DEFAULT_JSON_INPUT_FILE = "jsonInputFile.txt";
 
     @Override
-    public String ipFromStrategy(String userInputFile) {
+    public String getIpStrategy(String userInputFile) {
         String inputPath = userInputFile != null ? userInputFile : DEFAULT_JSON_INPUT_FILE;
 
         String targetIp = null;

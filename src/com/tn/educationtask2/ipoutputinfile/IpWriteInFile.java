@@ -8,9 +8,9 @@ import java.io.IOException;
 public class IpWriteInFile {
     public static void writeToFile(IP userIp) {
         try (FileWriter writeIp = new FileWriter("ipBarn.txt")) {//отлавливаем исключения
-            writeIp.write("ip ползователя:" + userIp.getIp());
+            writeIp.write("user ip:" + userIp.getIp());
         } catch (IOException ioException) {
-            System.out.print("Возникли проблемы с записью данных в файл:" + ioException.getMessage());
+            System.out.print("unable to write data to file:" + ioException.getMessage());
             ioException.printStackTrace();
         } catch (NullPointerException nullPointerException) {
             System.out.println("unable to get json from provided path");

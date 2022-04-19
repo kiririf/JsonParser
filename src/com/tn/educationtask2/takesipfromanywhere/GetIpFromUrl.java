@@ -8,7 +8,7 @@ public class GetIpFromUrl implements GetIpStrategy {
     public static final String DEFAULT_JSON_INPUT_URL = "https://api.ipify.org/?format=json";
 
     @Override
-    public String ipFromStrategy(String userInputUrl) {
+    public String getIpStrategy(String userInputUrl) {
         String inputPath = userInputUrl != null ? userInputUrl : DEFAULT_JSON_INPUT_URL;
 
         String targetIp = null;
