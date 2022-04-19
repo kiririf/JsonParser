@@ -1,10 +1,8 @@
 package com.tn.educationtask2.neededclass;
 
-
-import lombok.Value;
-
-@Value
+import lombok.Getter;
+@Getter
 public class IP {
 
-    String ip;
+    private String ip;
 }
