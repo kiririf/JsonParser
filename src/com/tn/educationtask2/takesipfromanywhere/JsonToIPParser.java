@@ -10,7 +10,7 @@ public class JsonToIPParser extends IpWriteInFile {
     @Setter
     GetIpStrategy getIpStrategy;
 
-    public final IP handleIp(String userInputPath) {
+    public final IP transformationToIp(String userInputPath) {
         String targetIp = null;
         try {
             targetIp = getIpStrategy.ipFromStrategy(userInputPath);

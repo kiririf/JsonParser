@@ -21,7 +21,7 @@ public class Task2 {
             }
             JsonToIPParser jsonToIp = new JsonToIPParser();
             jsonToIp.setGetIpStrategy(strategyType);
-            writeToFile(jsonToIp.handleIp(userInputPath));
+            writeToFile(jsonToIp.transformationToIp(userInputPath));
 
         } else {
             throw new RuntimeException("Enter at least one argument");
