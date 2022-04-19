@@ -21,6 +21,8 @@ public class GetIpFromUrl implements GetIpStrategy {
         } catch (IOException ioException) {
             System.out.println("Something went wrong while trying to connect using the link, exception message:" +
                     ioException.getMessage());
+        } catch (NullPointerException e) {
+            System.out.println("null" + e.getMessage());
         }
 
         return targetIp;
