@@ -20,7 +20,7 @@ public class Task2 {
                 System.out.println("Enter the correct input type");
             }
             JsonToIPParser jsonToIp = new JsonToIPParser();
-            jsonToIp.setGetIpFrom(strategyType);
+            jsonToIp.setGetIpStrategy(strategyType);
             ipInFile(jsonToIp.handleIp(userInputPath));
 
         } else {
