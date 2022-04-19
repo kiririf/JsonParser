@@ -13,7 +13,7 @@ public class Task2 {
         if (args.length > 0) {
             String inputType = args[0];
             String userInputPath = args.length > 1 ? args[1] : null;
-            GetIpStrategy strategyType = null;
+            GetIpStrategy strategyType;
             try {
                 strategyType = StrategyTypeEnum.valueOf(inputType.toUpperCase()).chosenStrategy();
             } catch (RuntimeException e) {
