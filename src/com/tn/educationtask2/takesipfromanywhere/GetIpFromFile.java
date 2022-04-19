@@ -5,15 +5,18 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-public class GetIpFromFile implements GetIpFromAnywhere {
-    @Override
-    public String ipFromAnywhere(String jsonInputFile) {
-        String targetIp = null;
+public class GetIpFromFile implements GetIpStrategy {
+    public static final String DEFAULT_JSON_INPUT_FILE = "jsonInputFile.txt";
 
-        try (BufferedReader reader = Files.newBufferedReader(Paths.get(jsonInputFile))) {
+    @Override
+    public String ipFromStrategy(String userInputFile) {
+        String inputPath = userInputFile != null ? userInputFile : DEFAULT_JSON_INPUT_FILE;
+
+        String targetIp = null;
+        try (BufferedReader reader = Files.newBufferedReader(Paths.get(inputPath))) {
             targetIp = reader.readLine();
         } catch (IOException e) {
-            System.out.println("Возникли проблемы с получением данных из файла:" + e.getMessage());
+            System.out.println("entered non-existent file, exception message:" + e.getMessage());
             e.printStackTrace();
         }
 

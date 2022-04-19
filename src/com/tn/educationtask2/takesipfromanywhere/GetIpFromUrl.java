@@ -4,16 +4,19 @@ import org.jsoup.Jsoup;
 
 import java.io.IOException;
 
-public class GetIpFromUrl implements GetIpFromAnywhere {
-    @Override
-    public String ipFromAnywhere(String jsonInputUrl) {
-        String targetIp = null;
+public class GetIpFromUrl implements GetIpStrategy {
+    public static final String DEFAULT_JSON_INPUT_URL = "https://api.ipify.org/?format=json";
 
+    @Override
+    public String ipFromStrategy(String userInputUrl) {
+        String inputPath = userInputUrl != null ? userInputUrl : DEFAULT_JSON_INPUT_URL;
+
+        String targetIp = null;
         try {
-            targetIp = Jsoup.connect(jsonInputUrl)
+            targetIp = Jsoup.connect(inputPath)
                     .ignoreContentType(true).execute().body();//подключаемся по ссылке и получаем данные
         } catch (IOException e) {
-            System.out.println("Возникли проблемы с получением данных по URL:" + e.getMessage());
+            System.out.println("non-existent link entered, exception message:" + e.getMessage());
             e.printStackTrace();
         }
 
