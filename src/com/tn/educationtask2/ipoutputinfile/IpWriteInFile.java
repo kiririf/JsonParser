@@ -6,7 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class IpWriteInFile {
-    public static void ipInFile(IP userIp) {
+    public static void writeToFile(IP userIp) {
         try (FileWriter writeIp = new FileWriter("ipBarn.txt")) {//отлавливаем исключения
             writeIp.write("ip ползователя:" + userIp.getIp());
         } catch (IOException ioException) {

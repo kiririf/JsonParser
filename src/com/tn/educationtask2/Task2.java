@@ -4,7 +4,7 @@ import com.tn.educationtask2.takesipfromanywhere.GetIpStrategy;
 import com.tn.educationtask2.takesipfromanywhere.JsonToIPParser;
 import com.tn.educationtask2.variationsinput.StrategyTypeEnum;
 
-import static com.tn.educationtask2.ipoutputinfile.IpWriteInFile.ipInFile;
+import static com.tn.educationtask2.ipoutputinfile.IpWriteInFile.writeToFile;
 
 public class Task2 {
 
@@ -21,7 +21,7 @@ public class Task2 {
             }
             JsonToIPParser jsonToIp = new JsonToIPParser();
             jsonToIp.setGetIpStrategy(strategyType);
-            ipInFile(jsonToIp.handleIp(userInputPath));
+            writeToFile(jsonToIp.handleIp(userInputPath));
 
         } else {
             throw new RuntimeException("Enter at least one argument");
