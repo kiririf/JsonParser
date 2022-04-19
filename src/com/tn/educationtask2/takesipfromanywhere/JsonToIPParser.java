@@ -8,10 +8,10 @@ import lombok.Setter;
 
 public class JsonToIPParser extends IpWriteInFile {
     @Setter
-    GetIpStrategy getIpFrom;
+    GetIpStrategy getIpStrategy;
 
     public final IP handleIp(String userInputPath) {
-        String targetIp = getIpFrom.ipFromStrategy(userInputPath);
+        String targetIp = getIpStrategy.ipFromStrategy(userInputPath);
         GsonBuilder builder = new GsonBuilder();
         Gson parser = builder.create();//создаём парсер, который преобразует Json в объект
         return parser.fromJson(targetIp, IP.class);//переводим Json в объект
