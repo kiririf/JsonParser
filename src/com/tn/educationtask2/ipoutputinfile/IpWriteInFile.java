@@ -13,7 +13,7 @@ public class IpWriteInFile {
             System.out.print("Возникли проблемы с записью данных в файл:" + ioException.getMessage());
             ioException.printStackTrace();
         } catch (NullPointerException nullPointerException) {
-            System.out.println("unable to get json from provided link");
+            System.out.println("unable to get json from provided path");
         }
     }
 }

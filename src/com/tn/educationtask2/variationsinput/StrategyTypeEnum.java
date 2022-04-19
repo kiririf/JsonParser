@@ -7,16 +7,16 @@ import com.tn.educationtask2.takesipfromanywhere.GetIpStrategy;
 public enum StrategyTypeEnum {
     FILE {
         @Override
-        public GetIpStrategy chosenPath() {
+        public GetIpStrategy chosenStrategy() {
             return new GetIpFromFile();
         }
     },
     URL {
         @Override
-        public GetIpStrategy chosenPath() {
+        public GetIpStrategy chosenStrategy() {
             return new GetIpFromUrl();
         }
     };
 
-    public abstract GetIpStrategy chosenPath();
+    public abstract GetIpStrategy chosenStrategy();
 }
