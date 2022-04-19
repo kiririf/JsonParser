@@ -15,9 +15,12 @@ public class GetIpFromUrl implements GetIpStrategy {
         try {
             targetIp = Jsoup.connect(inputPath)
                     .ignoreContentType(true).execute().body();//подключаемся по ссылке и получаем данные
-        } catch (IOException e) {
-            System.out.println("non-existent link entered, exception message:" + e.getMessage());
-            e.printStackTrace();
+        } catch (IllegalArgumentException argumentException) {
+            System.out.println("non-existent link entered, exception message:" +
+                    argumentException.getMessage());
+        } catch (IOException ioException) {
+            System.out.println("Something went wrong while trying to connect using the link, exception message:" +
+                    ioException.getMessage());
         }
 
         return targetIp;

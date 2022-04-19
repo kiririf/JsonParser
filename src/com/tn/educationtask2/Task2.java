@@ -19,9 +19,9 @@ public class Task2 {
             } catch (RuntimeException e) {
                 System.out.println("Enter the correct input type");
             }
-            JsonToIPParser jsonToIp = new JsonToIPParser();
-            jsonToIp.setGetIpFrom(strategyType);
-            ipInFile(jsonToIp.handleIp(userInputPath));
+            JsonToIPParser jsonToIpObject = new JsonToIPParser();
+            jsonToIpObject.setGetIpFrom(strategyType);
+            ipInFile(jsonToIpObject.handleIp(userInputPath));
 
         } else {
             throw new RuntimeException("Enter at least one argument");

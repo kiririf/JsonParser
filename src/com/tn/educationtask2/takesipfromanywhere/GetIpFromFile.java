@@ -16,8 +16,8 @@ public class GetIpFromFile implements GetIpStrategy {
         try (BufferedReader reader = Files.newBufferedReader(Paths.get(inputPath))) {
             targetIp = reader.readLine();
         } catch (IOException e) {
-            System.out.println("entered non-existent file, exception message:" + e.getMessage());
-            e.printStackTrace();
+            System.out.println("entered non-existent file, exception message:" +
+                    e.getMessage());
         }
 
         return targetIp;
