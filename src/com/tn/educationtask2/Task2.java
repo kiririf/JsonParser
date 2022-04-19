@@ -17,7 +17,7 @@ public class Task2 {
             try {
                 strategyType = StrategyTypeEnum.valueOf(inputType.toUpperCase()).chosenPath();
             } catch (RuntimeException e) {
-                System.out.println("Enter the correct input type");
+                throw new RuntimeException("Enter the correct input type");
             }
             JsonToIPParser jsonToIp = new JsonToIPParser();
             jsonToIp.setGetIpStrategy(strategyType);
