@@ -10,7 +10,7 @@ public class JsonToIPParser extends IpWriteInFile {
     @Setter
     GetIpStrategy getIpFrom;
 
-    public IP handleIp(String userInputPath) {
+    public final IP handleIp(String userInputPath) {
         String targetIp = getIpFrom.ipFromStrategy(userInputPath);
         GsonBuilder builder = new GsonBuilder();
         Gson parser = builder.create();//создаём парсер, который преобразует Json в объект
