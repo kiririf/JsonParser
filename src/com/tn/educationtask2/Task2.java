@@ -14,7 +14,7 @@ public class Task2 {
             String inputType = args[0];
             String userInputPath = args.length > 1 ? args[1] : null;
             GetIpStrategy strategyType = null;
-            try{
+            try {
                 strategyType = StrategyTypeEnum.valueOf(inputType.toUpperCase()).chosenPath();
             } catch (RuntimeException e) {
                 System.out.println("Enter the correct input type");
