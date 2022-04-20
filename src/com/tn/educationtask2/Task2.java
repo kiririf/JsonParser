@@ -13,15 +13,13 @@ public class Task2 {
         if (args.length > 0) {
             String inputType = args[0];
             String userInputPath = args.length > 1 ? args[1] : null;
-            GetIpStrategy strategyType = null;
             try {
-                strategyType = StrategyTypeEnum.valueOf(inputType.toUpperCase()).usedStrategy();
-            } catch (RuntimeException runtimeException) {
-                System.out.println("Enter the correct input type: file, url");
-            } finally {
+                GetIpStrategy strategyType = StrategyTypeEnum.valueOf(inputType.toUpperCase()).usedStrategy();
                 JsonToIPParser jsonToIp = new JsonToIPParser();
                 jsonToIp.setGetIpStrategy(strategyType);
                 writeToFile(jsonToIp.transformationToIp(userInputPath));
+            } catch (RuntimeException runtimeException) {
+                System.out.println("Enter the correct input type: file, url");
             }
         } else {
             throw new RuntimeException("Enter at least one argument");
