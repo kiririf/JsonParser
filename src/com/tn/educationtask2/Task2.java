@@ -18,11 +18,11 @@ public class Task2 {
                 strategyType = StrategyTypeEnum.valueOf(inputType.toUpperCase()).usedStrategy();
             } catch (RuntimeException runtimeException) {
                 System.out.println("Enter the correct input type: file, url");
+            } finally {
+                JsonToIPParser jsonToIp = new JsonToIPParser();
+                jsonToIp.setGetIpStrategy(strategyType);
+                writeToFile(jsonToIp.transformationToIp(userInputPath));
             }
-            JsonToIPParser jsonToIp = new JsonToIPParser();
-            jsonToIp.setGetIpStrategy(strategyType);
-            writeToFile(jsonToIp.transformationToIp(userInputPath));
-
         } else {
             throw new RuntimeException("Enter at least one argument");
         }

@@ -9,7 +9,7 @@ public class JsonToIPParser {
     @Setter
     GetIpStrategy getIpStrategy;
 
-    public final IP transformationToIp(String userInputPath) {
+    public IP transformationToIp(String userInputPath) {
         String targetIp = null;
         try {
             targetIp = getIpStrategy.getIpStrategy(userInputPath);
