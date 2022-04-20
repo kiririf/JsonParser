@@ -14,7 +14,7 @@ public class JsonToIPParser {
         try {
             targetIp = getIpStrategy.getIpStrategy(userInputPath);
         } catch (NullPointerException exception) {
-            System.out.println("Please, input correct type");
+            System.out.println("");
         }
         GsonBuilder builder = new GsonBuilder();
         Gson parser = builder.create();//создаём парсер, который преобразует Json в объект
