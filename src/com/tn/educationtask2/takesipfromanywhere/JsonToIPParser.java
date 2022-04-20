@@ -2,11 +2,10 @@ package com.tn.educationtask2.takesipfromanywhere;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.tn.educationtask2.ipoutputinfile.IpWriteInFile;
 import com.tn.educationtask2.neededclass.IP;
 import lombok.Setter;
 
-public class JsonToIPParser extends IpWriteInFile {
+public class JsonToIPParser {
     @Setter
     GetIpStrategy getIpStrategy;
 
