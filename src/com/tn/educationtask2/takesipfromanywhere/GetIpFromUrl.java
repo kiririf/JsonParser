@@ -6,23 +6,27 @@ import java.io.IOException;
 
 public class GetIpFromUrl implements GetIpStrategy {
     public static final String DEFAULT_JSON_INPUT_URL = "https://api.ipify.org/?format=json";
+    public static final String ILLEGAL_ARG_MESSAGE = "non-existent link entered, exception message:";
+    public static final String CONNECT_ERR_MESSAGE = "Can't connect with user link, exception message:";
 
     @Override
-    public String getIpStrategy(String userInputUrl) {
-        String inputPath = userInputUrl != null ? userInputUrl : DEFAULT_JSON_INPUT_URL;
+    public String getIpStrategy(String userInput) {
+        String inputPath = validInputPath(userInput);
 
         String targetIp = null;
         try {
             targetIp = Jsoup.connect(inputPath)
                     .ignoreContentType(true).execute().body();//подключаемся по ссылке и получаем данные
         } catch (IllegalArgumentException argumentException) {
-            System.out.println("non-existent link entered, exception message:" +
-                    argumentException.getMessage());
+            System.out.println(ILLEGAL_ARG_MESSAGE + argumentException.getMessage());
         } catch (IOException ioException) {
-            System.out.println("Something went wrong while trying to connect using the link, exception message:" +
-                    ioException.getMessage());
+            System.out.println(CONNECT_ERR_MESSAGE + ioException.getMessage());
         }
 
         return targetIp;
+    }
+
+    private static String validInputPath(String userInput) {
+        return userInput != null ? userInput : DEFAULT_JSON_INPUT_URL;
     }
 }

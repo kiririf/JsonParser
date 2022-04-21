@@ -7,19 +7,23 @@ import java.nio.file.Paths;
 
 public class GetIpFromFile implements GetIpStrategy {
     public static final String DEFAULT_JSON_INPUT_FILE = "jsonInputFile.txt";
+    public static final String LOG_MESSAGE = "entered non-existent file, exception message:";
 
     @Override
-    public String getIpStrategy(String userInputFile) {
-        String inputPath = userInputFile != null ? userInputFile : DEFAULT_JSON_INPUT_FILE;
+    public String getIpStrategy(String userInput) {
+        String inputPath = validInputPath(userInput);
 
         String targetIp = null;
         try (BufferedReader reader = Files.newBufferedReader(Paths.get(inputPath))) {
             targetIp = reader.readLine();
         } catch (IOException e) {
-            System.out.println("entered non-existent file, exception message:" +
-                    e.getMessage());
+            System.out.println(LOG_MESSAGE + e.getMessage());
         }
 
         return targetIp;
+    }
+
+    private static String validInputPath(String userInput) {
+        return userInput != null ? userInput : DEFAULT_JSON_INPUT_FILE;
     }
 }

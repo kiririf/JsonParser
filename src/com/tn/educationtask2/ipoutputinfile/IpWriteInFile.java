@@ -2,18 +2,30 @@ package com.tn.educationtask2.ipoutputinfile;
 
 import com.tn.educationtask2.neededclass.IP;
 
-import java.io.FileWriter;
+import java.io.BufferedWriter;
 import java.io.IOException;
+import java.nio.file.Paths;
+
+import static java.nio.file.Files.newBufferedWriter;
 
 public class IpWriteInFile {
+    public static final String NOT_FIND_MESSAGE = "unable to get json from provided path";
+
     public static void writeToFile(IP userIp) {
-        try (FileWriter writeIp = new FileWriter("ipBarn.txt")) {//отлавливаем исключения
-            writeIp.write("user ip:" + userIp.getIp());
+        String outputMessage = userIpValid(userIp);
+
+        try (BufferedWriter writeIp = newBufferedWriter(Paths.get("ipBarn.txt"))) {
+            writeIp.write("user ip:" + outputMessage);
         } catch (IOException ioException) {
-            System.out.print("unable to write data to file:" + ioException.getMessage());
-            ioException.printStackTrace();
-        } catch (NullPointerException nullPointerException) {
-            System.out.println("unable to get json from provided path");
+            System.out.println(NOT_FIND_MESSAGE);
+        }
+    }
+
+    private static String userIpValid(IP userIp) {
+        if(userIp != null) {
+            return userIp.getIp();
+        } else {
+            return NOT_FIND_MESSAGE;
         }
     }
 }
