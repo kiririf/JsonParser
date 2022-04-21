@@ -8,9 +8,7 @@ import static com.tn.educationtask2.ipoutputinfile.IpWriteInFile.NOT_FIND_MESSAG
 public class ValuesValidation {
     public static boolean argsValidation(String[] args) {
         boolean validType = args.length > 0;
-        if (!validType) {
-            throw new RuntimeException(RUNTIME_DESCRIPTION);
-        }
+        if (!validType) throw new RuntimeException(RUNTIME_DESCRIPTION);
         return args.length > 1;
     }
 
