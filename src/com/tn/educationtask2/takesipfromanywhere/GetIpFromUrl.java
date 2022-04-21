@@ -4,6 +4,8 @@ import org.jsoup.Jsoup;
 
 import java.io.IOException;
 
+import static com.tn.educationtask2.variationsinput.ValuesValidation.validInputPath;
+
 public class GetIpFromUrl implements GetIpStrategy {
     public static final String DEFAULT_JSON_INPUT_URL = "https://api.ipify.org/?format=json";
     public static final String ILLEGAL_ARG_MESSAGE = "non-existent link entered, exception message:";
@@ -11,7 +13,7 @@ public class GetIpFromUrl implements GetIpStrategy {
 
     @Override
     public String getIpStrategy(String userInput) {
-        String inputPath = validInputPath(userInput);
+        String inputPath = validInputPath(userInput, DEFAULT_JSON_INPUT_URL);
 
         String targetIp = null;
         try {
@@ -24,9 +26,5 @@ public class GetIpFromUrl implements GetIpStrategy {
         }
 
         return targetIp;
-    }
-
-    private static String validInputPath(String userInput) {
-        return userInput != null ? userInput : DEFAULT_JSON_INPUT_URL;
     }
 }

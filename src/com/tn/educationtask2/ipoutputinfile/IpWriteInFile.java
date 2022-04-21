@@ -6,6 +6,7 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.file.Paths;
 
+import static com.tn.educationtask2.variationsinput.ValuesValidation.userIpValid;
 import static java.nio.file.Files.newBufferedWriter;
 
 public class IpWriteInFile {
@@ -17,15 +18,7 @@ public class IpWriteInFile {
         try (BufferedWriter writeIp = newBufferedWriter(Paths.get("ipBarn.txt"))) {
             writeIp.write("user ip:" + outputMessage);
         } catch (IOException ioException) {
-            System.out.println(NOT_FIND_MESSAGE);
-        }
-    }
-
-    private static String userIpValid(IP userIp) {
-        if(userIp != null) {
-            return userIp.getIp();
-        } else {
-            return NOT_FIND_MESSAGE;
+            System.out.println(NOT_FIND_MESSAGE + ioException.getMessage());
         }
     }
 }
